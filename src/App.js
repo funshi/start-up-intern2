@@ -1,7 +1,7 @@
 import Header from "./component/Header";
 import Tasks from "./component/Tasks";
-import { useState, useEffect } from 'react'
-import {BrowserRouter as Router, Route } from 'react-router-dom'
+import { useState } from 'react'
+//import {BrowserRouter as Router, Route } from 'react-router-dom'
 import AddTask from "./component/AddTask";
 import Footer from "./component/Footer";
 import About from "./component/About";
@@ -55,15 +55,14 @@ const toggleReminder = (id) => {
 )
 }
   return (
-    <Router>
     <div className="container">
        <Header onAdd={() => setShowAddTask(!showAddTask)} showAdd={showAddTask} />
       {showAddTask && <AddTask onAdd={addTask} />}
       {tasks.length > 0 ? <Tasks tasks={tasks}
        onDelete={deleteTask} onToggle={toggleReminder} /> : 'No Task To Show'}
        <Footer />
+       <About />
        </div>
-       </Router>
   )
 }
 
